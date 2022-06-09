@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "145348250750",
+    "project_id": "aplikasi-daftar-tugas",
+    "storage_bucket": "aplikasi-daftar-tugas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145348250750:android:351b796d754c0fbe739c2f",
+        "android_client_info": {
+          "package_name": "com.project.daftartugas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "145348250750-d8doiuo91kpl26tcb2d7rdkudbr5qstu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCakf0f-KrQ_uYf3sZDDSlObi3S3v1keqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "145348250750-d8doiuo91kpl26tcb2d7rdkudbr5qstu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
