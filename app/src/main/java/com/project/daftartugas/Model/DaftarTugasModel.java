@@ -1,6 +1,6 @@
 package com.project.daftartugas.Model;
 
-public class ToDoModel extends TaskId {
+public class DaftarTugasModel extends TaskId {
 
     private String task , due;
     private int status;

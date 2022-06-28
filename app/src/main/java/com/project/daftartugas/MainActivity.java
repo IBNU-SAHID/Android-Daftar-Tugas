@@ -5,12 +5,9 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ClipData;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentChange;
@@ -19,13 +16,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.project.daftartugas.Adapter.ToDoAdapter;
-import com.project.daftartugas.Model.ToDoModel;
+import com.project.daftartugas.Adapter.DaftarTugasAdapter;
+import com.project.daftartugas.Model.DaftarTugasModel;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
     private RecyclerView recyclerView;
     private FloatingActionButton mFab;
     private FirebaseFirestore firestore;
-    private ToDoAdapter adapter;
-    private List<ToDoModel> mList;
+    private DaftarTugasAdapter adapter;
+    private List<DaftarTugasModel> mList;
     private Query query;
     private ListenerRegistration listenerRegistration;
 
@@ -55,13 +50,13 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+                TambahTugasBaru.newInstance().show(getSupportFragmentManager(), TambahTugasBaru.TAG);
 
             }
         });
 
         mList = new ArrayList<>();
-        adapter = new ToDoAdapter(MainActivity.this, mList);
+        adapter = new DaftarTugasAdapter(MainActivity.this, mList);
 
         recyclerView.setAdapter(adapter);
         showData();
@@ -78,9 +73,9 @@ public class MainActivity extends AppCompatActivity implements OnDialogCloseList
                     if (documentChange.getType() == DocumentChange.Type.ADDED){
 
                         String id = documentChange.getDocument().getId();
-                        ToDoModel toDoModel = documentChange.getDocument().toObject(ToDoModel.class).withId(id);
+                        DaftarTugasModel daftarTugasModel = documentChange.getDocument().toObject(DaftarTugasModel.class).withId(id);
 
-                        mList.add(toDoModel);
+                        mList.add(daftarTugasModel);
                         adapter.notifyDataSetChanged();
 
                         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new TouchHelper(adapter));

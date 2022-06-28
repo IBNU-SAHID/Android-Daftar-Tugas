@@ -22,7 +22,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,14 +31,13 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nullable;
 
-public class AddNewTask extends BottomSheetDialogFragment {
-    public static final String TAG = "AddNewTask";
+public class TambahTugasBaru extends BottomSheetDialogFragment {
+    public static final String TAG = "TambahTugasBaru";
 
     private TextView setDueDate;
     private EditText mTaskEdit;
@@ -53,14 +51,14 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
     private FirebaseFirestore firestore;
 
-    public static AddNewTask newInstance() {
-        return new AddNewTask();
+    public static TambahTugasBaru newInstance() {
+        return new TambahTugasBaru();
     }
 
     @androidx.annotation.Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @androidx.annotation.Nullable ViewGroup container, @androidx.annotation.Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.add_new_task, container, false);
+        return inflater.inflate(R.layout.tambah_tugas_baru, container, false);
     }
 
     @Override
@@ -89,7 +87,6 @@ public class AddNewTask extends BottomSheetDialogFragment {
 
             if (task.length() > 0){
                 mSaveBtn.setEnabled(false);
-                mSaveBtn.setBackgroundColor(Color.GRAY);
             }
 
         }
@@ -172,7 +169,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                             @Override
                             public void onComplete(@NonNull Task<DocumentReference> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(context, "Task Saved", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Tugas Disimpan", Toast.LENGTH_SHORT).show();
                                 } else {
                                     Toast.makeText(context, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
